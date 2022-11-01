@@ -1,9 +1,19 @@
 <template>
-
+    <div>
+        <MainPage></MainPage>
+    </div>
 </template>
 
 <script>
- </script>
+    import MainPage from "./components/MainPage"
+      export default {
+          name: 'App',
+          components: {
+              MainPage
+      }
+    }
+
+</script>
 
 <style>
 
