@@ -69,7 +69,7 @@ class getimg(object):
         self.func=kwargs.get('website','baidu')
 
     def get(self):
-        if not self.kw or not self:
+        if not self.kw or not self.page:
             print("\033[1;31;0m 缺少必要的参数! \033[0m")
             return False
         if self.func=='bing':
