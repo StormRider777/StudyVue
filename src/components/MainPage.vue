@@ -19,7 +19,7 @@
         <LayoutPanel  region="west">
             <div class="workarea">
 		        <h4>导航</h4>
-		        <Tree :data="treedata" @selectionChange="selection=$event"></Tree>
+		        <Tree :data="treedata" @selectionChange="treechange"></Tree>
 		        <p v-if="selection">Selected: {{selection.text}}</p>
             </div>
         </LayoutPanel>
@@ -39,7 +39,6 @@
                         :pagination="true"
                         :data="data"
                         :total="total"
-                        :pageList="pageList"
                         :pageSize="pageSize"
                         :pagePosition="pagePosition">
                     <GridColumn field="inv" title="Inv No"></GridColumn>
@@ -64,7 +63,6 @@ export default {
       pageSize: 20,
       data: [],
       pagePosition: "bottom",
-      pageList:[15,20,50,100],
       pageOptions: [
         { value: "bottom", text: "Bottom" },
         { value: "top", text: "Top" },
@@ -156,7 +154,11 @@ export default {
           ]
         }
       ];
+    },
+    treechange(e){
+        this.selection=e
     }
+
 
   },
   mounted(){
